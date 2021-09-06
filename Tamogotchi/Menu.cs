@@ -7,6 +7,8 @@ namespace Tamogotchi
   {
     public static void MenuMethod()
     {
+
+      SafeFile safeFile = new SafeFile();
       int menu = 0;
       string menuString = "";
 
@@ -40,7 +42,7 @@ namespace Tamogotchi
       switch (menu)
       {
         case 1:
-          Console.WriteLine("Tryck på en knapp för att gå ut :)");
+          safeFile.CheckFile();
           break;
         case 2:
           Console.WriteLine("Då va det slut!");
@@ -52,6 +54,7 @@ namespace Tamogotchi
           Console.WriteLine("Ej giltig kommando");
           Console.ReadLine();
           break;
+
       }
     }
   }

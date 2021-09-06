@@ -5,9 +5,9 @@ namespace Tamogotchi
 {
   class Program
   {
-    // static void Main(string[] args)
-    // {
-    //   Menu.MenuMethod();
-    // }
+    static void Main(string[] args)
+    {
+      Menu.MenuMethod();
+    }
   }
 }
