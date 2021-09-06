@@ -42,7 +42,7 @@ namespace Tamogotchi
         int bordsnamn = int.Parse(specefikBord[1]);
         string antalPengar = specefikBord[2];
         bool antalSittPlatser = bool.Parse(specefikBord[3]);
-        Console.WriteLine($"Save File Nr {i + 1} - hunger: {bordsnamn}, boredom: {antalGäst}, name: {antalSittPlatser}, isAlive: {antalPengar} kr");
+        Console.WriteLine($"Save File Nr {i + 1} - hunger: {bordsnamn}, boredom: {antalGäst}, name: {antalSittPlatser}, isAlive: {antalPengar}");
       }
     }
 

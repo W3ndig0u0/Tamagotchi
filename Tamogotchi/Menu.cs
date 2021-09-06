@@ -12,12 +12,9 @@ namespace Tamogotchi
       int menu = 0;
       string menuString = "";
 
-      Console.WriteLine("Det här är spelet Block Dodge.");
+      Console.WriteLine("Det här är spelet Tamogotchi.");
 
-      Console.Write("Ange ditt namn: ");
-      string name = Console.ReadLine();
-
-      Console.WriteLine("\nHejsan " + name + "! Välkommen Till Menyn!");
+      Console.WriteLine("\nHejsan Välkommen Till Menyn!");
 
       while (menu != 2)
       {
