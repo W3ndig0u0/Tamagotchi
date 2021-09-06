@@ -43,6 +43,8 @@ namespace Tamogotchi
       {
         case 1:
           safeFile.CheckFile();
+          safeFile.ReadFile();
+          Console.ReadLine();
           break;
         case 2:
           Console.WriteLine("Då va det slut!");
