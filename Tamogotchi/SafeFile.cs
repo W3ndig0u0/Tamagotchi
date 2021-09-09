@@ -5,44 +5,50 @@ namespace Tamogotchi
 {
   public class SafeFile
   {
-    public string[] bordsInnehåll;
-    public string filnamn = "Tamogotchi.txt";
-    public string tomtBord = "0;0;Null;false";
-    public int antalbord = 3;
+
+    public string[] fileInfo;
+    public string fileName = "Tamogotchi SaveFile.txt";
+    public string text = "New Game;0;0;false";
+    public int maxFile = 3;
+
 
     public void CheckFile()
     {
-      // kollar om filen finns
-      if (File.Exists(filnamn))
+      //! kollar om filen finns
+      if (File.Exists(fileName))
       {
-        bordsInnehåll = File.ReadAllLines(filnamn);
+        fileInfo = File.ReadAllLines(fileName);
         Console.WriteLine("Tamogotchi Info:");
-        for (int i = 0; i < bordsInnehåll.Length; i++)
+        for (int i = 0; i < fileInfo.Length; i++)
         {
-          bordsInnehåll[i] = tomtBord;
+          fileInfo[i] = text;
         }
       }
-      else //om filen inte finns, skapas en ny fil
+
+      //! om filen inte finns, skapas en ny fil
+      else
       {
-        bordsInnehåll = new string[antalbord];
-        for (int i = 0; i < bordsInnehåll.Length; i++)
+        fileInfo = new string[maxFile];
+        for (int i = 0; i < fileInfo.Length; i++)
         {
-          bordsInnehåll[i] = tomtBord;
+          fileInfo[i] = text;
         }
-        File.WriteAllLines(filnamn, bordsInnehåll);
-        Console.WriteLine("Tamogotchi.txt Is Creating");
+        File.WriteAllLines(fileName, fileInfo);
+        Console.WriteLine("Tamogotchi SaveFile.txt Is Creating");
       }
     }
+
+    //! läser vad som står i filen
     public void ReadFile()
     {
-      for (int i = 0; i < bordsInnehåll.Length; i++)
+      for (int i = 0; i < fileInfo.Length; i++)
       {
-        string[] specefikBord = bordsInnehåll[i].Split(';');
-        int antalGäst = int.Parse(specefikBord[0]);
-        int bordsnamn = int.Parse(specefikBord[1]);
-        string antalPengar = specefikBord[2];
-        bool antalSittPlatser = bool.Parse(specefikBord[3]);
-        Console.WriteLine($"Save File Nr {i + 1} - hunger: {bordsnamn}, boredom: {antalGäst}, name: {antalSittPlatser}, isAlive: {antalPengar}");
+        string[] specefikBord = fileInfo[i].Split(';');
+        string fileName = specefikBord[0];
+        int filePetHunger = int.Parse(specefikBord[1]);
+        int filePetBoredome = int.Parse(specefikBord[2]);
+        string filePetAlive = specefikBord[3];
+        Console.WriteLine($"Save File Nr {i + 1}, FileName: {fileName}, (Hunger: {filePetHunger}, Boredome: {filePetBoredome}, Alive: {filePetAlive})");
       }
     }
 
