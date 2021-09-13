@@ -13,7 +13,7 @@ namespace Tamogotchi
     bool isAlive = true;
 
     Random generator = new Random();
-    int randomInt = generator.Next(0, 100);
+    // int randomInt = generator.Next(0, 100);
 
     List<string> words = new List<string>();
 
