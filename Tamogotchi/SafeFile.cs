@@ -7,9 +7,9 @@ namespace Tamogotchi
   {
 
     public string[] fileInfo;
-    public string fileName = "Tamogotchi SaveFile.txt";
-    public string text = "New Game;0;0;false";
-    public int maxFile = 3;
+    public string fileName = "";
+    public string text = "";
+    public int maxFile = 0;
 
 
     public void CheckFile()
@@ -39,7 +39,7 @@ namespace Tamogotchi
     }
 
     //! läser vad som står i filen
-    public void ReadFile()
+    public void SafeFileReadFile()
     {
       for (int i = 0; i < fileInfo.Length; i++)
       {
