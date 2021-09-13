@@ -41,6 +41,8 @@ namespace Tamogotchi
         case 1:
           safeFile.CheckFile();
           safeFile.ReadFile();
+          Tamagotchi.Tick();
+          Tamagotchi.PrintStats();
           Console.ReadLine();
           break;
         case 2:
