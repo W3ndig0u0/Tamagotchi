@@ -7,9 +7,9 @@ namespace Tamogotchi
   {
 
     public string[] fileInfo;
-    public string fileName = "";
-    public string text = "";
-    public int maxFile = 0;
+    string fileName = "Tamogotchi SaveFile.txt";
+    string text = "New Game;0;0;false";
+    int maxFile = 3;
 
 
     public void CheckFile()
@@ -43,11 +43,11 @@ namespace Tamogotchi
     {
       for (int i = 0; i < fileInfo.Length; i++)
       {
-        string[] specefikBord = fileInfo[i].Split(';');
-        string fileName = specefikBord[0];
-        int filePetHunger = int.Parse(specefikBord[1]);
-        int filePetBoredome = int.Parse(specefikBord[2]);
-        string filePetAlive = specefikBord[3];
+        string[] specefikFile= fileInfo[i].Split(';');
+        string fileName = specefikFile[0];
+        int filePetHunger = int.Parse(specefikFile[1]);
+        int filePetBoredome = int.Parse(specefikFile[2]);
+        string filePetAlive = specefikFile[3];
         Console.WriteLine($"Save File Nr {i + 1}, FileName: {fileName}, (Hunger: {filePetHunger}, Boredome: {filePetBoredome}, Alive: {filePetAlive})");
       }
     }

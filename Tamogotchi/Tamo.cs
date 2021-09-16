@@ -6,15 +6,12 @@ namespace Tamogotchi
   public class Tamo
   {
 
-    public string name = "";
-
     int hunger = 0;
     int boredom = 0;
     bool isAlive = true;
 
-    Random rng = new Random();
+    // Random rng = new Random();
     // int randomInt = rng.Next(0, 10);
-    int randomInt = rng.Next(0, 10);
 
     List<string> words = new List<string>();
 
@@ -25,16 +22,19 @@ namespace Tamogotchi
     {
       hunger++;
       boredom++;
+
       if (boredom > 10 || hunger > 10)
       {
         isAlive = false;
+      }
     }
 
     //! Feed() sänker Hunger
     public void Feed()
-    {
-      hunger -= 2;
-    }
+      {
+        hunger -= 2;
+      }
+    
     // !ReduceBoredom() sänker boredom
     public void ReduceBoredom()
     {
@@ -47,24 +47,20 @@ namespace Tamogotchi
     {
       for (int i = 0; i < words.Count; i++)
       {
-        Console.WriteLine()
-
+        Console.WriteLine(words[i]);
       }
+
+      ReduceBoredom();
     }
 
     //! Teach(string word) lägger till ett ord i words, och anropar ReduceBoredom.
     public void Teach(string word)
     {
       words.Add(word);
+      
+
+      ReduceBoredom();
     }
-    //public void Hi()
-    //{
-
-    //! Teach(string word) lägger till ett ord i words, och anropar ReduceBoredom.
-    //public void Teach(string word)
-    //{
-
-    //}
 
     //! PrintStats() skriver ut nuvarande hunger och bredom, och meddelar också huruvida tamagotchin lever.
     public void PrintStats()
@@ -75,19 +71,12 @@ namespace Tamogotchi
     }
 
     //! GetAlive() returnerar värdet som isAlive har.
-    // public void GetAlive()
-    // {
-    //   return isAlive;
-    // }
-      console.WriteLine("Boredom :" + boredom);
-      console.WriteLine("Hunger :" + hunger);
-      console.WriteLine("Is Alive :" + isAlive);
-    }
-
-    //! GetAlive() returnerar värdet som isAlive har.
-    public void GetAlive()
+    public bool GetAlive()
     {
       return isAlive;
     }
+      // console.WriteLine("Boredom :" + boredom);
+      // console.WriteLine("Hunger :" + hunger);
+      // console.WriteLine("Is Alive :" + isAlive);
+    }
   }
-}

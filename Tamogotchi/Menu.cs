@@ -9,17 +9,9 @@ namespace Tamogotchi
     {
 
       SafeFile safeFile = new SafeFile();
-
-      safeFile.fileName = "Tamogotchi SaveFile.txt";
-      safeFile.text = "New Game;0;0;false";
-      safeFile.maxFile = 3;
-
-      // SafeFile wordFile = new SafeFile();
-      // safeFile.fileName = "Tamogotchi Words.txt";
-      // safeFile.text = "Null";
-
-
+      Words words = new Words();
       Tamo tamogotchi = new Tamo();
+
       int menu = 0;
       string menuString = "";
 
@@ -52,14 +44,21 @@ namespace Tamogotchi
         case 1:
           safeFile.CheckFile();
           safeFile.SafeFileReadFile();
-          tamogotchi.PrintStats();
-          tamogotchi.Tick();
-          tamogotchi.Feed();
-          tamogotchi.ReduceBoredom();
-          tamogotchi.PrintStats();
-          safeFile.ReadFile();
-          Tamagotchi.Tick();
-          Tamagotchi.PrintStats();
+
+          words.CheckFile();
+          words.WordFileReadFile();
+          
+        Console.WriteLine("");
+        Console.Write("Den Ska lära sig ordet :");
+        string word = Console.ReadLine();
+        tamogotchi.Teach(word);
+
+        Console.Write("Den Ska lära sig ordet :");
+        string word2 = Console.ReadLine();
+        tamogotchi.Teach(word2);
+
+          tamogotchi.Hi();
+          // GamePlay.GamePlayMethod();
           Console.ReadLine();
           break;
         case 2:
