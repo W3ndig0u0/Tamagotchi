@@ -8,8 +8,8 @@ namespace Tamogotchi
   public class Tamo
   {
     string namn;
-    int hunger = 0;
-    int boredom = 0;
+    int hunger;
+    int boredom;
     bool isAlive = true;
 
     // Random rng = new Random();
@@ -40,6 +40,7 @@ namespace Tamogotchi
     //! Tick() ökar hunger och boredom, och om någon av dem kommer över 10 så blir isAlive false.
     public void Tick()
     {
+      ReadTamoInfo();
       hunger++;
       boredom++;
 
