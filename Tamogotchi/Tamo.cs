@@ -32,10 +32,10 @@ namespace Tamogotchi
 
     //! Feed() sänker Hunger
     public void Feed()
-      {
-        hunger -= 2;
-      }
-    
+    {
+      hunger -= 2;
+    }
+
     // !ReduceBoredom() sänker boredom
     public void ReduceBoredom()
     {
@@ -58,7 +58,8 @@ namespace Tamogotchi
     public void Teach(string word)
     {
       words.Add(word);
-      
+
+      File.AppendAllLines("Tamogotchi WordFile.txt", words);
 
       ReduceBoredom();
     }
@@ -76,8 +77,8 @@ namespace Tamogotchi
     {
       return isAlive;
     }
-      // console.WriteLine("Boredom :" + boredom);
-      // console.WriteLine("Hunger :" + hunger);
-      // console.WriteLine("Is Alive :" + isAlive);
-    }
+    // console.WriteLine("Boredom :" + boredom);
+    // console.WriteLine("Hunger :" + hunger);
+    // console.WriteLine("Is Alive :" + isAlive);
   }
+}

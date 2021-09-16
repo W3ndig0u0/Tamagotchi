@@ -3,12 +3,12 @@ using System.IO;
 
 namespace Tamogotchi
 {
-    public class Words
-    {
+  public class Words
+  {
     public string[] wordFileInfo;
     public string wordFileName = "Tamogotchi WordFile.txt";
     public string wordText = "Hi";
-    int wordMaxFile = 10;
+    int wordMaxFile = 1;
 
 
     public void CheckFile()
@@ -33,11 +33,11 @@ namespace Tamogotchi
 
     //! läser vad som står i filen
     public void WordFileReadFile()
-    {       
-        for (int i = 0; i < wordFileInfo.Length; i++)
-        {
-          Console.WriteLine(wordFileInfo[i]);        
-        }
+    {
+      for (int i = 0; i < wordFileInfo.Length; i++)
+      {
+        Console.WriteLine(wordFileInfo[i]);
+      }
     }
   }
 }

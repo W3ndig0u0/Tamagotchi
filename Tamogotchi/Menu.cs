@@ -10,7 +10,6 @@ namespace Tamogotchi
     {
 
       SafeFile safeFile = new SafeFile();
-      Words words = new Words();
       Tamo tamogotchi = new Tamo();
 
       int menu = 0;
@@ -45,22 +44,7 @@ namespace Tamogotchi
         case 1:
           safeFile.CheckFile();
           safeFile.SafeFileReadFile();
-
-          words.CheckFile();
-          words.WordFileReadFile();
-          
-          Console.WriteLine("");
-          Console.Write("Den Ska lära sig ordet :");
-          string word = Console.ReadLine();
-          tamogotchi.Teach(word);
-          string text = File.ReadAllText("Tamogotchi WordFile.txt");
-          text = text.Replace("Hi", word);
-          File.WriteAllText("Tamogotchi WordFile.txt", text);
-
-          tamogotchi.Hi();
-          words.WordFileReadFile();
-          // GamePlay.GamePlayMethod();
-          
+          GamePlay.GamePlayMethod();
           Console.ReadLine();
           break;
         case 2:

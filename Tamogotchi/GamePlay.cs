@@ -1,18 +1,21 @@
 using System;
+using System.IO;
 
 namespace Tamogotchi
 {
-    public class GamePlay
-    {
-        
-    public static void GamePlayMethod(){
+  public class GamePlay
+  {
 
+    public static void GamePlayMethod()
+    {
+
+      Words words = new Words();
       Tamo tamogotchi = new Tamo();
       int gameMenu = 0;
       string GameMenuString = "";
 
-      
-    // void GameMenu(){
+
+      // void GameMenu(){
 
       while (gameMenu != 6)
       {
@@ -34,58 +37,76 @@ namespace Tamogotchi
           Console.Write("Ok, Jag väljer då: ");
           GameMenuString = Console.ReadLine();
         }
-        
+
         break;
       }
-    // }
 
 
       // !Istället för att använda fler if
       switch (gameMenu)
       {
         case 1:
-        Console.Clear();
-        Console.WriteLine("Hälsar På Den");
-        tamogotchi.Hi();
-        tamogotchi.Tick();
-        Console.WriteLine();
-        Console.WriteLine("Tamogotchis Nya Stats: ");
-        tamogotchi.PrintStats();
-          break;
-        
-        case 2:
-        Console.Clear();
-        Console.Write("Den Ska lära sig ordet :");
-        string word = Console.ReadLine();
-        tamogotchi.Teach(word);
+          Console.Clear();
+          Console.WriteLine("Hälsar På Den");
+          words.CheckFile();
+          words.WordFileReadFile();
 
-        tamogotchi.Tick();
-        Console.WriteLine();
-        Console.WriteLine("Tamogotchis Nya Stats: ");
-        tamogotchi.PrintStats();
+          // Console.WriteLine("");
+          // Console.Write("Den Ska lära sig ordet :");
+          string word = Console.ReadLine();
+          tamogotchi.Teach(word);
+
+          tamogotchi.Hi();
+          // words.WordFileReadFile();
+          tamogotchi.Tick();
+          Console.WriteLine();
+          Console.WriteLine("Tamogotchis Nya Stats: ");
+          tamogotchi.PrintStats();
           break;
-        
+
+        // case 1:
+        // Console.Clear();
+        // Console.WriteLine("Hälsar På Den");
+        // tamogotchi.Hi();
+        // tamogotchi.Tick();
+        // Console.WriteLine();
+        // Console.WriteLine("Tamogotchis Nya Stats: ");
+        // tamogotchi.PrintStats();
+        //   break;
+
+        case 2:
+          Console.Clear();
+          Console.Write("Den Ska lära sig ordet :");
+          string newWord = Console.ReadLine();
+          tamogotchi.Teach(newWord);
+
+          tamogotchi.Tick();
+          Console.WriteLine();
+          Console.WriteLine("Tamogotchis Nya Stats: ");
+          tamogotchi.PrintStats();
+          break;
+
         case 3:
-        Console.Clear();
-        Console.WriteLine("Matar Den");
-        tamogotchi.Feed();
-        tamogotchi.Tick();
-        Console.WriteLine();
-        Console.WriteLine("Tamogotchis Nya Stats: ");
-        tamogotchi.PrintStats();
+          Console.Clear();
+          Console.WriteLine("Matar Den");
+          tamogotchi.Feed();
+          tamogotchi.Tick();
+          Console.WriteLine();
+          Console.WriteLine("Tamogotchis Nya Stats: ");
+          tamogotchi.PrintStats();
           break;
-        
+
         case 4:
-        Console.Clear();
-        Console.WriteLine("En Timme Skippas!");
-        tamogotchi.Tick();
-        Console.WriteLine();
-        Console.WriteLine("Tamogotchis Nya Stats: ");
-        tamogotchi.PrintStats();
+          Console.Clear();
+          Console.WriteLine("En Timme Skippas!");
+          tamogotchi.Tick();
+          Console.WriteLine();
+          Console.WriteLine("Tamogotchis Nya Stats: ");
+          tamogotchi.PrintStats();
           break;
-        
+
         case 5:
-        Console.Clear();
+          Console.Clear();
           Console.WriteLine("Spellogik");
           Console.WriteLine("Låt användaren döpa sin tamagotchi.");
           Console.WriteLine("Låt spelaren välja mellan att lära tamagotchin ett nytt ord, hälsa på den, mata den eller göra ingenting.");
@@ -93,9 +114,9 @@ namespace Tamogotchi
           Console.WriteLine("Varje gång spelaren gör ett val så körs också Tick.");
           Console.WriteLine("Om tamagotchin är död avslutas spelloopen.");
           break;
-        
+
         case 6:
-        Console.Clear();
+          Console.Clear();
           Console.WriteLine("Då va det slut!");
           Console.WriteLine("Tryck på en knapp för att gå ut :)");
           break;
@@ -105,7 +126,7 @@ namespace Tamogotchi
           Console.ReadLine();
           break;
 
-     }
+      }
     }
   }
 }
