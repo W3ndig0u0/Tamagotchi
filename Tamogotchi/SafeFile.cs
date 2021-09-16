@@ -8,8 +8,8 @@ namespace Tamogotchi
 
     public string[] fileInfo;
     string fileName = "Tamogotchi SaveFile.txt";
-    string text = "New Game;0;0;false";
-    int maxFile = 3;
+    string text = "New Game;0;0";
+    int maxFile = 1;
 
 
     public void CheckFile()
@@ -18,7 +18,6 @@ namespace Tamogotchi
       if (File.Exists(fileName))
       {
         fileInfo = File.ReadAllLines(fileName);
-        Console.WriteLine("Tamogotchi Info:");
         for (int i = 0; i < fileInfo.Length; i++)
         {
           fileInfo[i] = text;
@@ -34,21 +33,29 @@ namespace Tamogotchi
           fileInfo[i] = text;
         }
         File.WriteAllLines(fileName, fileInfo);
-        Console.WriteLine("Tamogotchi SaveFile.txt Is Creating");
+        Console.Clear();
+        Console.WriteLine("Tamogotchi SaveFile.txt hittades inte:");
+        Console.WriteLine("En ny Tamogotchi SaveFile.txt Skapas:");
+        Console.WriteLine("Vad ska Tamogotchins namn vara?:");
+        string namn = Console.ReadLine();
+        Console.WriteLine($"Tamogotchin heter nu {namn}.");
+        File.AppendAllText("Tamogotchi SaveFile.txt", $"{namn};0;0");
+        Console.WriteLine("Tryck på [ENTER] För att Fortsätta.");
+        Console.ReadLine();
       }
     }
 
     //! läser vad som står i filen
     public void SafeFileReadFile()
     {
+      fileInfo = File.ReadAllLines(fileName);
       for (int i = 0; i < fileInfo.Length; i++)
       {
-        string[] specefikFile= fileInfo[i].Split(';');
+        string[] specefikFile = fileInfo[i].Split(';');
         string fileName = specefikFile[0];
         int filePetHunger = int.Parse(specefikFile[1]);
         int filePetBoredome = int.Parse(specefikFile[2]);
-        string filePetAlive = specefikFile[3];
-        Console.WriteLine($"Save File Nr {i + 1}, FileName: {fileName}, (Hunger: {filePetHunger}, Boredome: {filePetBoredome}, Alive: {filePetAlive})");
+        Console.WriteLine($"Save File Nr {i + 1}, FileName: {fileName}, (Hunger: {filePetHunger}, Boredome: {filePetBoredome})");
       }
     }
 

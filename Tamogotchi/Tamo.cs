@@ -1,12 +1,13 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Tamogotchi
 {
   public class Tamo
   {
-
+    string namn;
     int hunger = 0;
     int boredom = 0;
     bool isAlive = true;
@@ -14,9 +15,27 @@ namespace Tamogotchi
     // Random rng = new Random();
     // int randomInt = rng.Next(0, 10);
 
-    List<string> words = new List<string>();
+    List<string> words = File.ReadLines("Tamogotchi WordFile.txt").ToList();
+    // List<string> words = new List<string>();
 
     //! − words: List<string>
+
+    void ReadTamoInfo()
+    {
+      using (TextReader reader = File.OpenText("Tamogotchi SaveFile.txt"))
+      {
+        string text = reader.ReadLine();
+        string[] bits = text.Split(';');
+        namn = bits[0];
+        hunger = int.Parse(bits[1]);
+        boredom = int.Parse(bits[2]);
+      }
+    }
+
+    void UpdateTamoInfo()
+    {
+      File.WriteAllText("Tamogotchi SaveFile.txt", $"{namn};{hunger};{boredom}");
+    }
 
     //! Tick() ökar hunger och boredom, och om någon av dem kommer över 10 så blir isAlive false.
     public void Tick()
@@ -28,7 +47,19 @@ namespace Tamogotchi
       {
         isAlive = false;
       }
+
+      UpdateTamoInfo();
     }
+
+    //! PrintStats() skriver ut nuvarande hunger och bredom, och meddelar också huruvida tamagotchin lever.
+    public void PrintStats()
+    {
+      ReadTamoInfo();
+      Console.WriteLine("Boredom :" + boredom);
+      Console.WriteLine("Hunger :" + hunger);
+      Console.WriteLine("Is Alive :" + isAlive);
+    }
+
 
     //! Feed() sänker Hunger
     public void Feed()
@@ -64,21 +95,10 @@ namespace Tamogotchi
       ReduceBoredom();
     }
 
-    //! PrintStats() skriver ut nuvarande hunger och bredom, och meddelar också huruvida tamagotchin lever.
-    public void PrintStats()
-    {
-      Console.WriteLine("Boredom :" + boredom);
-      Console.WriteLine("Hunger :" + hunger);
-      Console.WriteLine("Is Alive :" + isAlive);
-    }
-
     //! GetAlive() returnerar värdet som isAlive har.
     public bool GetAlive()
     {
       return isAlive;
     }
-    // console.WriteLine("Boredom :" + boredom);
-    // console.WriteLine("Hunger :" + hunger);
-    // console.WriteLine("Is Alive :" + isAlive);
   }
 }

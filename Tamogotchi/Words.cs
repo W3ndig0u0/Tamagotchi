@@ -8,7 +8,7 @@ namespace Tamogotchi
     public string[] wordFileInfo;
     public string wordFileName = "Tamogotchi WordFile.txt";
     public string wordText = "Hi";
-    int wordMaxFile = 1;
+    int wordMaxFile = 3;
 
 
     public void CheckFile()
@@ -27,7 +27,12 @@ namespace Tamogotchi
         {
           wordFileInfo[i] = wordText;
         }
+
         File.WriteAllLines(wordFileName, wordFileInfo);
+        Console.WriteLine("Tamogotchi SaveFile.txt hittades inte:");
+        Console.WriteLine("En ny Tamogotchi SaveFile.txt Skapas:");
+        Console.WriteLine("Tryck på [ENTER] För att Fortsätta.");
+        Console.ReadLine();
       }
     }
 

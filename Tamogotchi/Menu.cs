@@ -35,29 +35,30 @@ namespace Tamogotchi
           menuString = Console.ReadLine();
         }
 
-        break;
-      }
 
-      // !Istället för att använda fler if
-      switch (menu)
-      {
-        case 1:
-          safeFile.CheckFile();
-          safeFile.SafeFileReadFile();
-          GamePlay.GamePlayMethod();
-          Console.ReadLine();
-          break;
-        case 2:
-          Console.WriteLine("Då va det slut!");
-          Console.WriteLine("Tryck på en knapp för att gå ut :)");
-          Console.ReadLine();
-          break;
+        // !Istället för att använda fler if
+        switch (menu)
+        {
+          case 1:
+            Console.Clear();
+            safeFile.CheckFile();
+            // safeFile.SafeFileReadFile();
+            SaveMenu.FileMenuMethod();
+            break;
+          case 2:
+            Console.Clear();
+            Console.WriteLine("Då va det slut!");
+            Console.WriteLine("Tryck på en knapp för att gå ut :)");
+            Console.ReadLine();
+            break;
 
-        default:
-          Console.WriteLine("Ej giltig kommando");
-          Console.ReadLine();
-          break;
+          default:
+            Console.Clear();
+            Console.WriteLine("Ej giltig kommando");
+            Console.ReadLine();
+            break;
 
+        }
       }
     }
   }
