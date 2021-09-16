@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace Tamogotchi
 {
@@ -48,17 +49,18 @@ namespace Tamogotchi
           words.CheckFile();
           words.WordFileReadFile();
           
-        Console.WriteLine("");
-        Console.Write("Den Ska lära sig ordet :");
-        string word = Console.ReadLine();
-        tamogotchi.Teach(word);
-
-        Console.Write("Den Ska lära sig ordet :");
-        string word2 = Console.ReadLine();
-        tamogotchi.Teach(word2);
+          Console.WriteLine("");
+          Console.Write("Den Ska lära sig ordet :");
+          string word = Console.ReadLine();
+          tamogotchi.Teach(word);
+          string text = File.ReadAllText("Tamogotchi WordFile.txt");
+          text = text.Replace("Hi", word);
+          File.WriteAllText("Tamogotchi WordFile.txt", text);
 
           tamogotchi.Hi();
+          words.WordFileReadFile();
           // GamePlay.GamePlayMethod();
+          
           Console.ReadLine();
           break;
         case 2:
