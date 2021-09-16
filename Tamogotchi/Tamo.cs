@@ -14,6 +14,7 @@ namespace Tamogotchi
 
     Random rng = new Random();
     // int randomInt = rng.Next(0, 10);
+    int randomInt = rng.Next(0, 10);
 
     List<string> words = new List<string>();
 
@@ -27,7 +28,6 @@ namespace Tamogotchi
       if (boredom > 10 || hunger > 10)
       {
         isAlive = false;
-      }
     }
 
     //! Feed() sänker Hunger
@@ -57,6 +57,14 @@ namespace Tamogotchi
     {
       words.Add(word);
     }
+    //public void Hi()
+    //{
+
+    //! Teach(string word) lägger till ett ord i words, och anropar ReduceBoredom.
+    //public void Teach(string word)
+    //{
+
+    //}
 
     //! PrintStats() skriver ut nuvarande hunger och bredom, och meddelar också huruvida tamagotchin lever.
     public void PrintStats()
@@ -71,5 +79,15 @@ namespace Tamogotchi
     // {
     //   return isAlive;
     // }
+      console.WriteLine("Boredom :" + boredom);
+      console.WriteLine("Hunger :" + hunger);
+      console.WriteLine("Is Alive :" + isAlive);
+    }
+
+    //! GetAlive() returnerar värdet som isAlive har.
+    public void GetAlive()
+    {
+      return isAlive;
+    }
   }
 }

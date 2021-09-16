@@ -57,6 +57,9 @@ namespace Tamogotchi
           tamogotchi.Feed();
           tamogotchi.ReduceBoredom();
           tamogotchi.PrintStats();
+          safeFile.ReadFile();
+          Tamagotchi.Tick();
+          Tamagotchi.PrintStats();
           Console.ReadLine();
           break;
         case 2:
