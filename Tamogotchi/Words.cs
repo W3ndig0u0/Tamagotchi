@@ -8,7 +8,7 @@ namespace Tamogotchi
     public string[] wordFileInfo;
     public string wordFileName = "Tamogotchi WordFile.txt";
     public string wordText = "Hi";
-    int wordMaxFile = 3;
+    int wordMaxFile = 1;
 
 
     public void CheckFile()

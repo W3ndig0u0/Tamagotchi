@@ -39,7 +39,7 @@ namespace Tamogotchi
         Console.WriteLine("Vad ska Tamogotchins namn vara?:");
         string namn = Console.ReadLine();
         Console.WriteLine($"Tamogotchin heter nu {namn}.");
-        File.AppendAllText("Tamogotchi SaveFile.txt", $"{namn};0;0");
+        File.WriteAllText("Tamogotchi SaveFile.txt", $"{namn};0;0");
         Console.WriteLine("Tryck på [ENTER] För att Fortsätta.");
         Console.ReadLine();
       }

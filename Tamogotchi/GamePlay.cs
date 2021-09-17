@@ -12,19 +12,23 @@ namespace Tamogotchi
       Words words = new Words();
       Tamo tamogotchi = new Tamo();
       string namn;
+      int hunger;
+      int boredom;
 
       using (TextReader reader = File.OpenText("Tamogotchi SaveFile.txt"))
       {
         string text = reader.ReadLine();
         string[] bits = text.Split(';');
         namn = bits[0];
+        hunger = int.Parse(bits[1]);
+        boredom = int.Parse(bits[2]);
       }
 
 
       int gameMenu = 0;
       string GameMenuString = "";
 
-      while (gameMenu != 6)
+      while (gameMenu != 6 || hunger > 10 || boredom > 10)
       {
         Console.Clear();
         Console.WriteLine("Välj ett av alternativen.");

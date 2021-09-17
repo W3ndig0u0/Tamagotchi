@@ -12,11 +12,24 @@ namespace Tamogotchi
     int boredom;
     bool isAlive = true;
 
+    Words wordsFile = new Words();
+    List<string> words = new List<string>();
+
     // Random rng = new Random();
     // int randomInt = rng.Next(0, 10);
+    void CreateList()
+    {
 
-    List<string> words = File.ReadLines("Tamogotchi WordFile.txt").ToList();
-    // List<string> words = new List<string>();
+      if (File.Exists("Tamogotchi WordFile.txt"))
+      {
+        words = File.ReadLines("Tamogotchi WordFile.txt").ToList();
+      }
+      else
+      {
+        wordsFile.CheckFile();
+      }
+    }
+
 
     //! − words: List<string>
 
@@ -65,19 +78,24 @@ namespace Tamogotchi
     //! Feed() sänker Hunger
     public void Feed()
     {
+      ReadTamoInfo();
       hunger -= 2;
+      UpdateTamoInfo();
     }
 
     // !ReduceBoredom() sänker boredom
     public void ReduceBoredom()
     {
+      ReadTamoInfo();
       boredom -= 2;
+      UpdateTamoInfo();
     }
 
 
     //! Hi() skriver ut ett slumpat ord från words, och anropar ReduceBoredom.
     public void Hi()
     {
+      CreateList();
       for (int i = 0; i < words.Count; i++)
       {
         Console.WriteLine(words[i]);
