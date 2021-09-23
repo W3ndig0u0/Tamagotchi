@@ -16,8 +16,7 @@ namespace Tamogotchi
       string menuString = "";
 
       Console.WriteLine("Det här är spelet Tamogotchi.");
-
-      Console.WriteLine("\nHejsan Välkommen Till Menyn!");
+      Console.WriteLine("Hejsan Välkommen Till Menyn!");
 
       while (menu != 2)
       {

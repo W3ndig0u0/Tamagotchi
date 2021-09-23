@@ -24,7 +24,6 @@ namespace Tamogotchi
         boredom = int.Parse(bits[2]);
       }
 
-
       int gameMenu = 0;
       string GameMenuString = "";
 
@@ -60,8 +59,6 @@ namespace Tamogotchi
             Console.WriteLine($"{namn} Säger :");
             tamogotchi.Hi();
 
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine("Tryck på [ENTER] För att Fortsätta.");
             Console.ReadLine();
 
@@ -129,10 +126,10 @@ namespace Tamogotchi
             Console.Clear();
             Console.WriteLine("Spellogik");
             Console.WriteLine("Låt användaren döpa sin tamagotchi.");
-            Console.WriteLine("Låt spelaren välja mellan att lära tamagotchin ett nytt ord, hälsa på den, mata den eller göra ingenting.");
+            Console.WriteLine($"Låt spelaren välja mellan att lära {namn} ett nytt ord, hälsa på den, mata den eller göra ingenting.");
             Console.WriteLine("När spelaren valt en handling, kör motsvarande metod och fråga sedan igen.");
             Console.WriteLine("Varje gång spelaren gör ett val så körs också Tick.");
-            Console.WriteLine("Om tamagotchin är död avslutas spelloopen.");
+            Console.WriteLine($"Om {namn} är död avslutas spelloopen.");
 
             Console.WriteLine("Tryck på [ENTER] För att Fortsätta.");
             Console.ReadLine();
@@ -144,6 +141,7 @@ namespace Tamogotchi
             Console.WriteLine($"Säg Hejdå Till {namn}!");
             Console.WriteLine("Tryck på en knapp för att gå ut :)");
             Console.ReadLine();
+            Environment.Exit(0);
             break;
 
           default:
@@ -154,6 +152,15 @@ namespace Tamogotchi
 
         }
       }
+
+      if (hunger > 10 || boredom > 10)
+      {
+        Console.WriteLine($"{namn} är död :3");
+        Console.WriteLine("Tryck på [ENTER] För att Fortsätta.");
+        Console.ReadLine();
+        Environment.Exit(0);
+      }
+
     }
   }
 }

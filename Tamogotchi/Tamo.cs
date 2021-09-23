@@ -14,9 +14,9 @@ namespace Tamogotchi
 
     Words wordsFile = new Words();
     List<string> words = new List<string>();
+    private Random generator = new Random();
 
-    // Random rng = new Random();
-    // int randomInt = rng.Next(0, 10);
+
     void CreateList()
     {
 
@@ -74,7 +74,6 @@ namespace Tamogotchi
       Console.WriteLine("Is Alive :" + isAlive);
     }
 
-
     //! Feed() sänker Hunger
     public void Feed()
     {
@@ -91,14 +90,18 @@ namespace Tamogotchi
       UpdateTamoInfo();
     }
 
-
     //! Hi() skriver ut ett slumpat ord från words, och anropar ReduceBoredom.
     public void Hi()
     {
       CreateList();
-      for (int i = 0; i < words.Count; i++)
+      if (words.Count >= 1)
       {
+        int i = generator.Next(words.Count);
         Console.WriteLine(words[i]);
+      }
+      else
+      {
+        Console.WriteLine($"{namn} kan inga ord :)");
       }
 
       ReduceBoredom();
